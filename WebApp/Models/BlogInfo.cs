@@ -12,5 +12,7 @@ namespace WebApp.Models
         public string Content { get; set; }
         public DateTime CreatedTime { get; set; }
 
+
+
     }
 }
