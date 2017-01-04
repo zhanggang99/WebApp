@@ -28,9 +28,9 @@
             // On success, 'data' contains a list of bloginfos.
               $.each(data, function (key, item) {
               // Add a list item for the bloginfo.
-                  //$('<li>', { text: formatItem(item) }).appendTo($('#bloginfos'));
-                  var str = item.Title + item.Content;
-                  $('<li/>', { text: str }).appendTo('#bloginfos');
+                  $('<li>', { text: formatItem(item) }).appendTo($('#bloginfos'));
+                  //var str = item.Title + item.Content;
+                  //$('<li/>', { text: str }).appendTo('#bloginfos');
             });
           });
     });

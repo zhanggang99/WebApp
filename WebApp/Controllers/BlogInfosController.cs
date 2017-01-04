@@ -19,12 +19,18 @@ namespace WebApp.Controllers
         };
         public IEnumerable<BlogInfo> GetAllBlogInfos()
         {
-            return bloginfos;
+            // return bloginfos;
+            return ESHelper.GetAllBlogs();
+            
         }
-
+        public IEnumerable<BlogInfo> GetAllBlogInfos(DateTime createdTime)
+        {
+            return ESHelper.GetBlogsByDate(createdTime);
+        }
         public IHttpActionResult GetBlogInfo(long id)
         {
-            var bloginfo = bloginfos.FirstOrDefault((p)=>p.BlogId==id);
+            //var bloginfo = bloginfos.FirstOrDefault((p)=>p.BlogId==id);
+            var bloginfo = ESHelper.GetBlogByBlodId(id);
             if (bloginfo == null)
                 return NotFound();
             return Ok(bloginfo);
