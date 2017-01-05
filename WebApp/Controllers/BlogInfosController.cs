@@ -17,12 +17,19 @@ namespace WebApp.Controllers
             new BlogInfo {BlogId=3,Title="我的第三个博客",Content="我的第三个博客内容",CreatedTime=System.DateTime.Now},
             new BlogInfo {BlogId=5,Title="我的第四个博客",Content="我的第四个博客内容",CreatedTime=System.DateTime.Now}
         };
-        public IEnumerable<BlogInfo> GetAllBlogInfos()
+
+        public List<BlogInfo> GetAllBlogInfos()
         {
             // return bloginfos;
             return ESHelper.GetAllBlogs();
-            
+
         }
+        //public IEnumerable<BlogInfo> GetAllBlogInfos()
+        //{
+        //    // return bloginfos;
+        //    return ESHelper.GetAllBlogs();
+            
+        //}
         public IEnumerable<BlogInfo> GetAllBlogInfos(DateTime createdTime)
         {
             return ESHelper.GetBlogsByDate(createdTime);
@@ -35,6 +42,7 @@ namespace WebApp.Controllers
                 return NotFound();
             return Ok(bloginfo);
         }
+
 
         //public IEnumerable<Product> GetProductsByCategory(string category)
         //{

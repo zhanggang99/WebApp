@@ -32,15 +32,31 @@ namespace WebApp
 
         }
 
-        public static IEnumerable<BlogInfo> GetAllBlogs()
+        //public static IEnumerable<BlogInfo> GetAllBlogs()
+        //{
+        //    var response = client.Search<BlogInfo>(s => s.Query(q=>q.MatchAll()).Sort(ss=>ss.Descending(f=>f.BlogId)));
+        //    //IEnumerable<BlogInfo> list = new BlogInfo[] { };
+        //    IEnumerable<BlogInfo> list = new List<BlogInfo>();
+        //    if (response.Documents.Count > 0)
+        //    {
+        //        foreach (BlogInfo document in response.Documents)
+        //        {
+        //            list.Add<BlogInfo>(document);
+        //        }
+        //    }
+        //    return list;
+
+        //}
+        public static List<BlogInfo> GetAllBlogs()
         {
-            var response = client.Search<BlogInfo>(s => s.Query(q=>q.MatchAll()).Sort(ss=>ss.Descending(f=>f.BlogId)));
-            IEnumerable<BlogInfo> list = new BlogInfo[] { };
+            var response = client.Search<BlogInfo>(s => s.Query(q => q.MatchAll()).Sort(ss => ss.Descending(f => f.BlogId)));
+            //IEnumerable<BlogInfo> list = new BlogInfo[] { };
+            List<BlogInfo> list = new List<BlogInfo>();
             if (response.Documents.Count > 0)
             {
                 foreach (BlogInfo document in response.Documents)
                 {
-                    list.Add<BlogInfo>(document);
+                    list.Add(document);
                 }
             }
             return list;
